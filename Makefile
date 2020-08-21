@@ -75,7 +75,8 @@ release: manifests
 	ls release
 	ls charts
 	ls charts/actions-runner-controller
-	
+	ls charts/actions-runner-controller/templates
+
 	# remove first 7 lines that create namespace
 	sed -i '1,7d' charts/actions-runner-controller/templates/actions-runner-controller.yaml 
 	# package helm .tgz and put it into the release dir
