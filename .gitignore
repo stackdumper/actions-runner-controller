@@ -25,4 +25,4 @@ bin
 *~
 
 # actions-runner-controller charts are generated automatically by `make helm`
-charts/actions-runner-controller/templates/*
+charts/actions-runner-controller/templates/actions-runner-controller.yaml

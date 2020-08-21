@@ -70,7 +70,7 @@ release: manifests
 
 	# build helm charts	
 	# copy controller manifest to helm templates
-	cp release/actions-runner-controller.yaml charts/actions-runner-controller/templates
+	cp -v release/actions-runner-controller.yaml charts/actions-runner-controller/templates
 
 	ls release
 	ls charts
