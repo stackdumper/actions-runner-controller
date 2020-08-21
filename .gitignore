@@ -23,3 +23,6 @@ bin
 *.swp
 *.swo
 *~
+
+# actions-runner-controller charts are generated automatically by `make helm`
+charts/actions-runner-controller/templates/*

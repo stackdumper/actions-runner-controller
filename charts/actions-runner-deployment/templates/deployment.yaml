@@ -1,0 +1,22 @@
+# RunnerDeployment
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: {{ include "actions-runner-deployment.fullname" . }}
+spec: {{- toYaml .Values.spec | nindent 2 }}
+
+# HorizontalRunnerAutoscaler
+{{ if .Values.autoscaling.enabled }}
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: {{ include "actions-runner-deployment.fullname" . }}-autoscaler
+spec:
+  {{- if .Values.autoscaling.spec }}
+  {{- toYaml .Values.autoscaling.spec | nindent 2 }}
+  {{- end }}
+  scaleTargetRef:
+    name: {{ include "actions-runner-deployment.fullname" . }}
+{{ end }}
